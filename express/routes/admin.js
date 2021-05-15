@@ -1,10 +1,13 @@
+const path = require('path')
+
 const express = require('express')
+
+const rootDir = require('../util/path')
 
 const router = express.Router()
 
 router.use('/add-product', (req, res, next) => {
-    console.log('The add product middleware');
-    res.send('<div><form action="/admin/product" method="POST"><input type="text" name="products"><button type="submit">Send</button></form></div>')
+    res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
 })
 router.post('/product', (req, res, next) => {
     console.log('The product page');
