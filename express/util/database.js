@@ -1,11 +1,5 @@
-const mysql = require('mysql2')
-    // create multiple connections by pool
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'node_complete',
-    password: '' // Change the password
-})
+const Sequelize = require('sequelize')
 
-// Promise to handle asynchronous tasks, instead of callback, use `then`.
-module.exports = pool.promise()
+const sequelize = new Sequelize('node_complete', 'root', 'Lime5005&', { dialect: 'mysql', host: 'localhost' })
+
+module.exports = sequelize
